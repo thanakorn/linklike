@@ -1,7 +1,5 @@
 package linklike
 
-
-
 import grails.test.mixin.*
 import org.junit.*
 
@@ -11,15 +9,15 @@ import org.junit.*
 @TestFor(Link)
 class LinkTests {
 	
+	private Link link
+	
 	@Before
 	void setup(){
-		
+		link = new Link(title:'Test link',url:'www.google.com',vote:0)
 	}
 
     @Test
 	void testCreateLink() {
-       def link = new Link(title:'Test link',url:'www.google.com',vote:0)
-	   
 	   assert link.title == 'Test link'
 	   assert link.url == 'www.google.com'
 	   assert link.vote == 0
@@ -27,12 +25,19 @@ class LinkTests {
 	
 	@Test
 	void testVoteLink(){
-		def link = new Link(title:'Test vote',url:'www.google.com',vote:0)
-		
 		link.voteLink();
-		
 		assert link.vote == 1
 	}
+	
+	@Test
+	void testConsecutiveVote(){
+		link.voteLink()
+		link.voteLink()
+		assert link.vote == 2
+		link.voteLink()
+		assert link.vote == 3
+	}
+
 
 	
 }

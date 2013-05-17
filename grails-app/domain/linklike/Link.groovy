@@ -8,4 +8,8 @@ class Link {
     
     static constraints = {
     }
+	
+	def voteLink(){
+		this.vote++
+	}
 }

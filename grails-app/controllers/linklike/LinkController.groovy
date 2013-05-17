@@ -8,7 +8,7 @@ class LinkController {
     }
 
     def create() {
-        def link = new Link(title: params.title, url: params.url)
+        def link = new Link(title: params.title, url: params.url, vote: 0)
         link.save()
         redirect(action: "index")
     }

@@ -23,4 +23,12 @@ class LinkControllerTests {
 		assert Link.count == 1
 	}
 	
+	void testVoteLink(){
+		def link = new Link(title:'Test vote',url:'www.google.com',vote:0)
+		link.save()
+		params.id = '1'
+		controller.vote()
+		assert Link.findById(1).vote == 1
+	}
+	
 }

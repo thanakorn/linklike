@@ -13,7 +13,12 @@
     <li>No links</li>
   <% } else { %>
     <% for(link in links) { %>
-      <li><%= link.title %></li>
+      <li>
+	  <g:form name="linkCreateForm" url="[action:'vote']">
+	  	<a href="http://<%= link.url %>"><%= link.title%></a>(<%= link.vote %> vote(s) fot this link)
+		  <input type="submit" value="Vote link"/>
+	  </g:form>
+	  </li>
     <% } %> 
   <% } %>
 </ul>

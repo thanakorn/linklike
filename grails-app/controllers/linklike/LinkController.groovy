@@ -13,8 +13,7 @@ class LinkController {
         redirect(action: "index")
     }
 	
-	def vote(link){
-		link.voteLink()
+	def vote(){
 		link.save()
 	}
 }

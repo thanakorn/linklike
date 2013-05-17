@@ -15,7 +15,8 @@
     <% for(link in links) { %>
       <li>
 	  <g:form name="linkCreateForm" url="[action:'vote']">
-	  	<a href="http://<%= link.url %>"><%= link.title%></a>(<%= link.vote %> vote(s) fot this link)
+	  	<a href="http://<%= link.url %>"><%= link.title%></a>[<%= link.vote %> vote(s) fot this link]
+		  <g:hiddenField name="id" value="${link.id}" />
 		  <input type="submit" value="Vote link"/>
 	  </g:form>
 	  </li>

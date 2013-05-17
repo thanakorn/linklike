@@ -37,7 +37,5 @@ class LinkTests {
 		link.voteLink()
 		assert link.vote == 3
 	}
-
-
 	
 }
